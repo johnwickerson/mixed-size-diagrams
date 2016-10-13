@@ -1,1 +1,1 @@
-# mixed-size-diagrams
+# Execution diagrams for mixed-size concurrency
