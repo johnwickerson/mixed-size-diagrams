@@ -1,0 +1,34 @@
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+
+\tikzset{%
+ev/.style={fill=white, draw=black, thick, anchor=north west},
+po/.style={-latex, thick, black},
+co/.style={draw=none, fill=blue, opacity=0.4},
+rf/.style={draw=none, fill=red, opacity=0.4},
+}
+
+\newcommand\tb[1]{%
+  \begin{tabular}{@{}c@{}}%
+    #1%
+  \end{tabular}%
+}
+
+\newcommand\corib[9][]{% [1:extra]{2:top left}{3:top left pull} 
+                     % {4:top right}{5:top right pull}
+                     % {6:bottom left}{7:bottom left pull}
+                     % {8:bottom right}{9:bottom right pull}
+\draw[co,#1] (#2) .. controls ++(90:#3) and ++(-90:#7) .. (#6)
+-- (#8) .. controls ++(-90:#9) and ++(90:#5) .. (#4) -- cycle;
+}
+
+\newcommand\rfrib[9][]{% [1:extra]{2:top left}{3:top left pull} 
+                       % {4:top right}{5:top right pull}
+                       % {6:bottom left}{7:bottom left pull}
+                       % {8:bottom right}{9:bottom right pull}
+\draw[rf,#1] (#2) .. controls ++(0:#3) and ++(-90:#7) .. (#6)
+-- (#8) .. controls ++(-90:#9) and ++(0:#5) .. (#4) -- cycle;
+}
+
+\newcommand\wi{minimum width}
+\newcommand\he{minimum height}

@@ -1,0 +1,35 @@
+\documentclass[margin=1cm]{standalone}
+
+\usepackage{msdiagrams}
+
+\begin{document}
+
+\begin{tikzpicture}[yscale=-1, baseline=0]
+\node[ev, \wi=4cm, \he=1cm] (e1) at (5,0) {\tb{W x/8 = 0}};
+\node[ev, \wi=4cm, \he=1cm] (e2) at (1,2) {\tb{W x/4 = 1}};
+\node[ev, \wi=4cm, \he=1cm] (e3) at (5,4) {\tb{W x+4/4 = 2}};
+\node[ev, \wi=4cm, \he=1cm] (e4) at (9,6) {\tb{R x/8 = 2}};
+
+\corib{e1.south west}{0.5}
+      {e1.south}{0.5}
+      {e2.north west}{0.5}
+      {e2.north east}{0.5}
+\corib{e1.south}{1}
+      {e1.south east}{1}
+      {e3.north west}{1}
+      {e3.north east}{1}
+\rfrib{e1.south east}{4}
+      {e1.east}{4}
+      {e4.north west}{1}
+      {e4.north}{2}
+\rfrib{e3.east}{4}
+      {e3.north east}{4}
+      {e4.north}{1}
+      {e4.north east}{2}
+
+\draw[po] (e1) to (e2);
+\draw[po] (e2) to (e3);
+\draw[po] (e1) to (e4);
+\end{tikzpicture}
+
+\end{document}
